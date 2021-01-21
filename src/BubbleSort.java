@@ -4,6 +4,7 @@ public class BubbleSort implements SortInterface {
     public double[] sort(int[] arr, int length) {
         long start = System.nanoTime();
         double[] messArr;
+        
         double schleifen = 0;
         double vergleiche = 0;
         for (int i = 0; i < length; i++) {
