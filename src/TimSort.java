@@ -2,11 +2,14 @@
  * TimSort
  * Beschreibung :
  * Tim Sort ist einfach gesagt, die optimierte Version der Merge-Sortierung.
- * Die Merge-Sortierung bei realen Welt Datenlisten ist nicht so effizient, da die Listen normalerweise teilweise sortiert
+ * Die Merge-Sortierung bei realen Welt Daten ist nicht so effizient, da die Listen normalerweise teilweise sortiert
  * sind. Mit diesem Wissen können wir den besten Fall verbessern, indem wir Insert Sort verwenden,
  * das bei kleinen Datenlisten effizient ist. Für diese Implementierung habe ich der Grenzwert bei 64.
  *
- * Stabilität: ja
+ * Stabilität:
+ *  TimSort ist ein stabil algorithmus, weil zwei Objekte mit gleichen Schlüsseln in der sortierten Ausgabe
+ *  in der gleichen Reihenfolge erscheinen, wie sie im zu sortierenden Eingabe-Array erscheinen.
+ *
  * Schlechteste Komplexität: n*log(n)
  * Durchschnittliche Komplexität: n*log(n)
  * Beste Komplexität: n
@@ -14,9 +17,9 @@
  * @author Tenzin Gyadhotsang
  * @version 1.0
  * @datum 25.01.2021
- * <p>
+ *
  * Quelle: https://www.geeksforgeeks.org/timsort/
- * 
+ * Von dem oben genannten Link habe ich den Code erhalten
  */
 public class TimSort extends SortWerte {
     private String name = "TimSort";
@@ -31,8 +34,9 @@ public class TimSort extends SortWerte {
     // array[0...n-1] (similar to merge sort)
 
     /**
-     * @param arr
-     * @param length
+     * Kern Method, wo es in Sortwerte aufgerufen wird.
+     * @param arr initial Array
+     * @param length Array grösse
      */
     @Override
     public void logic(int[] arr, int length) {
@@ -79,11 +83,6 @@ public class TimSort extends SortWerte {
 
     }
 
-    /**
-     * @param n
-     * @return
-     */
-
     private int minRunLength(int n) {
         assert n >= 0;
 
@@ -99,9 +98,10 @@ public class TimSort extends SortWerte {
     }
 
     /**
-     * @param arr
-     * @param left
-     * @param right
+     * Insert Sort implementation
+     * @param arr initial Array
+     * @param left index des Anfang
+     * @param right index des Ende
      */
     // This function sorts array from left index to
     // to right index which is of size atmost RUN
@@ -122,10 +122,11 @@ public class TimSort extends SortWerte {
     }
 
     /**
-     * @param arr
-     * @param l
-     * @param m
-     * @param r
+     * Merge Sort implementation
+     * @param arr initial Array
+     * @param l index des Anfang
+     * @param m index der Mitte
+     * @param r index des Ende
      */
 
     // Merge function merges the sorted runs
