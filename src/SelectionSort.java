@@ -13,8 +13,9 @@
 
 public class SelectionSort extends SortWerte {
 
-    private String name="SelectionSort";
-    public SelectionSort(){
+    private String name = "SelectionSort";
+
+    public SelectionSort() {
         super.setName(name);
     }
 
@@ -46,12 +47,17 @@ public class SelectionSort extends SortWerte {
             incrementAnzahlVergleiche();
             incrementAnzahleSchliefe();
         }
+
         incrementAnzahleSchliefe();
 
         incrementAnzahlVergleiche();
         incrementAnzahleSchliefe();
 
+
+        incrementAnzahlVergleiche();
+        incrementAnzahleSchliefe();
+
     }
-
-
 }
+
+
