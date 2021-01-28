@@ -8,9 +8,9 @@ import java.util.Date;
  * @date    2021-01-21
  * @version 1.0
  */
-public class Gnomesort implements SortInterface {
+public class Gnomesort extends SortWerte {
     @Override
-    public double[] sort(int[] arr, int length) {
+    public void logic(int[] arr, int length) {
         long start = new Date().getTime();
         double[] messArr;
         double anzSchleifen = 0;
@@ -42,6 +42,6 @@ public class Gnomesort implements SortInterface {
         }
         double time = new Date().getTime()-start;
         messArr = new double[]{anzSchleifen, time, anzVergleiche};
-        return messArr;
+        //return messArr;
     }
 }

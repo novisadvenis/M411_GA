@@ -7,13 +7,15 @@ import java.util.Date;
  * @author Viviana Kontos
  */
 
-public class Quicksort implements SortInterface {
+public class Quicksort extends SortWerte {
 
-    private static double schleifen;
-    private static double vergleiche;
+    private String name = "Quicksort";
 
+    public Quicksort(){
+        super.setName(name);
+    }
 
-    private static void sortParts(int[] arr, int leftPos, int rightPos) {
+    private void sortParts(int[] arr, int leftPos, int rightPos) {
         if (leftPos < rightPos) {
             int middlePos = split(arr, leftPos, rightPos);
             sortParts(arr, leftPos, middlePos - 1);
@@ -21,22 +23,22 @@ public class Quicksort implements SortInterface {
         }
     }
 
-    private static int split(int[] arr, int leftPos, int rightPos) {
+    private int split(int[] arr, int leftPos, int rightPos) {
 
         int pivot = arr[rightPos];
         int i = (leftPos - 1);
 
         for (int j = leftPos; j < rightPos; j++) {
-            vergleiche++;
+            incrementAnzahlVergleiche();
             if (arr[j] <= pivot) {
                 i++;
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
-                schleifen++;
+                incrementAnzahleSchliefe();
             }
-            vergleiche++;
-            schleifen++;
+            incrementAnzahlVergleiche();
+            incrementAnzahleSchliefe();
         }
 
         int temp = arr[i + 1];
@@ -47,10 +49,7 @@ public class Quicksort implements SortInterface {
     }
 
     @Override
-    public double[] sort(int[] arr, int length) {
-        long start = new Date().getTime();
+    public void logic(int[] arr, int length) {
         sortParts(arr, 0, length - 1);
-        double time = new Date().getTime()-start;
-        return new double[]{schleifen, time, vergleiche};
     }
 }

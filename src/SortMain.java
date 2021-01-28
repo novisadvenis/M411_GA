@@ -9,57 +9,50 @@ public class SortMain {
     private static int[] arr1000;
     private static double[] messWerte;
 
+
+
     public static void main(String[] args) {
         SortMain sm = new SortMain();
         sm.datReader();
-        BubbleSort bs = new BubbleSort();
-        Quicksort qs = new Quicksort();
-        SelectionSort ss = new SelectionSort();
-        Gnomesort gs = new Gnomesort();
 
         for (int i = 1; i <= 3; i++) {
-            int anzZahlen = 0;
-            int[] arr = null;
+            int anzZahlen;
+            int[] arr;
             switch (i) {
                 case 1:
                     anzZahlen = 10;
                     arr = arr10;
+                    aufrufen(arr, anzZahlen);
                     break;
                 case 2:
                     anzZahlen = 100;
                     arr = arr100;
+                    aufrufen(arr, anzZahlen);
                     break;
                 case 3:
                     anzZahlen = 1000;
                     arr = arr1000;
+                    aufrufen(arr, anzZahlen);
                     break;
             }
-            System.out.println(anzZahlen + " Zahlen:");
-            messWerte = bs.sort(arr, arr.length);
-            System.out.println("\tBubblesort:");
-            System.out.println(sm);
-            messWerte = qs.sort(arr, arr.length);
-            System.out.println("\tQuicksort:");
-            System.out.println(sm);
-            messWerte = ss.sort(arr, arr.length);
-            System.out.println("\tSelectionsort:");
-            System.out.println(sm);
-            messWerte = gs.sort(arr, arr.length);
-            System.out.println("\tGnomesort:");
-            System.out.println(sm);
+
+
         }
 
 
     }
 
-
-    @Override
-    public String toString() {
-        return
-                "\t\tAnzahl Schleifendurchläufe: " + messWerte[0] +
-                        "\n\t\tAnzahl Vergleiche:          " + messWerte[2] +
-                        "\n\t\tgebrauchte Zeit:            " + messWerte[1] + "ms";
+    public static void aufrufen(int[] arr, int anzZahlen) {
+        SortWerte bs = new BubbleSort().sort(arr, anzZahlen);
+        bs.print();
+        SortWerte qs = new Quicksort().sort(arr, anzZahlen);
+        qs.print();
+        SortWerte ss = new SelectionSort().sort(arr, anzZahlen);
+        ss.print();
+        SortWerte gs = new Gnomesort().sort(arr, anzZahlen);
+        gs.print();
     }
+
 
     private void datReader() {
 

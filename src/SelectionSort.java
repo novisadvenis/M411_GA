@@ -12,10 +12,10 @@ import java.util.Date;
  * @author Kaushall Vimalarajah
  */
 
-public class SelectionSort implements SortInterface{
+public class SelectionSort extends SortWerte{
 
     @Override
-    public double[] sort(int[] arr, int length) {
+    public void logic(int[] arr, int length) {
 
         long start = new Date().getTime();
         double[] messArr;
@@ -51,10 +51,8 @@ public class SelectionSort implements SortInterface{
         double time = new Date().getTime()-start;
         messArr = new double[]{schleifen, time, vergleiche};
 
-        return messArr;
+        //return messArr;
     }
-
-
 
 
 
