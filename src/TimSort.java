@@ -26,6 +26,8 @@ public class TimSort extends SortWerte {
         for (int i = 0; i < length; i += minRun) {
             int right = Math.min((i + 63), (length - 1));
             insertionSort(arr, i, right);
+            incrementAnzahleSchliefe();
+            incrementAnzahlVergleiche();
         }
 
         // Start merging from size
@@ -53,12 +55,14 @@ public class TimSort extends SortWerte {
                 // Merge sub array arr[left.....mid] &
                 // arr[mid+1....right]
                 merge(arr, left, mid, right);
+                incrementAnzahleSchliefe();
+                incrementAnzahlVergleiche();
             }
         }
 
     }
 
-    private static int minRunLength(int n) {
+    private int minRunLength(int n) {
         assert n >= 0;
 
         // Becomes 1 if any 1 bits are shifted off
@@ -66,26 +70,32 @@ public class TimSort extends SortWerte {
         while (n >= MIN_MERGE) {
             r |= (n & 1);
             n >>= 1;
+            incrementAnzahleSchliefe();
+            incrementAnzahlVergleiche();
         }
         return n + r;
     }
 
     // This function sorts array from left index to
     // to right index which is of size atmost RUN
-    public static void insertionSort(int[] arr, int left, int right) {
+    public void insertionSort(int[] arr, int left, int right) {
         for (int i = left + 1; i <= right; i++) {
             int temp = arr[i];
             int j = i - 1;
             while (j >= left && arr[j] > temp) {
                 arr[j + 1] = arr[j];
                 j--;
+                incrementAnzahlVergleiche();
+                incrementAnzahleSchliefe();
             }
             arr[j + 1] = temp;
+            incrementAnzahlVergleiche();
+            incrementAnzahleSchliefe();
         }
     }
 
     // Merge function merges the sorted runs
-    public static void merge(int[] arr, int l, int m, int r) {
+    public void merge(int[] arr, int l, int m, int r) {
         // Original array is broken in two parts
         // left and right array
         int len1 = m - l + 1, len2 = r - m;
@@ -93,9 +103,13 @@ public class TimSort extends SortWerte {
         int[] right = new int[len2];
         for (int x = 0; x < len1; x++) {
             left[x] = arr[l + x];
+            incrementAnzahleSchliefe();
+            incrementAnzahlVergleiche();
         }
         for (int x = 0; x < len2; x++) {
             right[x] = arr[m + 1 + x];
+            incrementAnzahleSchliefe();
+            incrementAnzahlVergleiche();
         }
 
         int i = 0;
@@ -108,11 +122,14 @@ public class TimSort extends SortWerte {
             if (left[i] <= right[j]) {
                 arr[k] = left[i];
                 i++;
+                incrementAnzahlVergleiche();
             } else {
                 arr[k] = right[j];
                 j++;
             }
             k++;
+            incrementAnzahleSchliefe();
+            incrementAnzahlVergleiche();
         }
 
         // Copy remaining elements
@@ -121,6 +138,8 @@ public class TimSort extends SortWerte {
             arr[k] = left[i];
             k++;
             i++;
+            incrementAnzahleSchliefe();
+            incrementAnzahlVergleiche();
         }
 
         // Copy remaining element
@@ -129,6 +148,8 @@ public class TimSort extends SortWerte {
             arr[k] = right[j];
             k++;
             j++;
+            incrementAnzahleSchliefe();
+            incrementAnzahlVergleiche();
         }
     }
 }
