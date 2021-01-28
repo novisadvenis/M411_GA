@@ -1,3 +1,11 @@
+/**
+ * TimSort
+ * Beschreibung :
+ *
+ * @author Tenzin Gyadhotsang
+ * @version 1.0
+ * @datum 25.01.2021
+ */
 public class TimSort extends SortWerte {
     private String name = "TimSort";
 
