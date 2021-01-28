@@ -49,6 +49,5 @@ public class Quicksort extends SortWerte {
     @Override
     public void logic(int[] arr, int length) {
         sortParts(arr, 0, length - 1);
-        setAnzahlZahlen(length);
     }
 }

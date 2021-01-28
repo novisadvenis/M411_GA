@@ -21,8 +21,6 @@ public class SelectionSort extends SortWerte {
 
     @Override
     public void logic(int[] arr, int length) {
-
-        setAnzahlZahlen(length);
         int i, j, minValue, minIndex, temp = 0;
         for (i = 0; i < length; i++) {
             incrementAnzahlVergleiche();

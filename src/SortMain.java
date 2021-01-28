@@ -20,19 +20,15 @@ public class SortMain {
         sm.datReader();
 
         for (int i = 1; i <= 3; i++) {
-            int[] arr;
             switch (i) {
                 case 1:
-                    arr = arr10;
-                    aufrufen(arr, arr.length);
+                    aufrufen(arr10, arr10.length);
                     break;
                 case 2:
-                    arr = arr100;
-                    aufrufen(arr, arr.length);
+                    aufrufen(arr100, arr100.length);
                     break;
                 case 3:
-                    arr = arr1000;
-                    aufrufen(arr, arr.length);
+                    aufrufen(arr1000, arr1000.length);
                     break;
             }
 
@@ -43,6 +39,8 @@ public class SortMain {
     }
 
     public static void aufrufen(int[] arr, int anzZahlen) {
+        System.out.println("Sortier Alogorithmus auf "+ arr.length+ " Zahlen");
+        System.out.println("==============================================");
         SortWerte bs = new BubbleSort().sort(arr, anzZahlen);
         bs.print();
         SortWerte qs = new Quicksort().sort(arr, anzZahlen);
@@ -53,6 +51,8 @@ public class SortMain {
         gs.print();
         SortWerte ts = new TimSort().sort(arr,anzZahlen);
         ts.print();
+
+        System.out.println(System.lineSeparator()+System.lineSeparator());
     }
 
 

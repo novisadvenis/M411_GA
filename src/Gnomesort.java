@@ -58,7 +58,5 @@ public class Gnomesort extends SortWerte {
             incrementAnzahlVergleiche();
             incrementAnzahlSchleifen();
         }
-        //Anzahl zu sortierende Zahlen setzen
-        setAnzahlZahlen(length);
     }
 }

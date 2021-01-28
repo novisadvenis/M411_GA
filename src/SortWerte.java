@@ -3,7 +3,6 @@
  * @date 21.01.2021
  */
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -18,8 +17,8 @@ public abstract class SortWerte implements SortInterface {
         messWerte = new LinkedHashMap<>();
     }
 
-    public void setAnzahlZahlen(double anzZahlen) {
-        messWerte.put("Anzahl zu sortierender Zahlen: ", anzZahlen);
+    public void setGroesseArr(double anzZahlen) {
+        messWerte.put("Anzahl zu sortierender Zahlen", anzZahlen);
     }
 
     private void setZeitInNanosekunde(double dauerInSekunde) {
@@ -27,7 +26,7 @@ public abstract class SortWerte implements SortInterface {
     }
 
     private void setMemoryUsage(double memoryUsage) {
-        messWerte.put("Speicherplatz in Kilobyte: ", memoryUsage / 1000);
+        messWerte.put("Speicherplatz in Kilobyte", memoryUsage / 1000);
     }
 
 
@@ -40,11 +39,11 @@ public abstract class SortWerte implements SortInterface {
     }
 
     public final void incrementAnzahlSchleifen() {
-        messWerte.put("Anzahl Schleifendurchläufe: ", schleifen++);
+        messWerte.put("Anzahl Schleifendurchläufe", schleifen++);
     }
 
     public final void incrementAnzahlVergleiche() {
-        messWerte.put("Anzahl Vergleiche: ", vergleiche++);
+        messWerte.put("Anzahl Vergleiche", vergleiche++);
     }
 
 
@@ -52,6 +51,7 @@ public abstract class SortWerte implements SortInterface {
         Runtime runtime = Runtime.getRuntime();
         long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
         long start = System.nanoTime();
+        setGroesseArr(length);
         logic(arr, length);
         long end = System.nanoTime();
         setZeitInNanosekunde((end - start));
@@ -66,10 +66,9 @@ public abstract class SortWerte implements SortInterface {
 
     public void print() {
         System.out.println(getName() + " Messwerte: ");
-        System.out.println();
         for (String key : messWerte.keySet()) {
             System.out.println(key + " : " + messWerte.get(key));
         }
-        System.out.println("-----------------------------------------");
+        System.out.println("----------------------------------------------"+System.lineSeparator());
     }
 }

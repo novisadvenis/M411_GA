@@ -7,7 +7,7 @@ public class BubbleSort extends SortWerte {
 
     private String name = "Bubblesort";
 
-    public BubbleSort(){
+    public BubbleSort() {
         super.setName(name);
     }
 
@@ -28,6 +28,5 @@ public class BubbleSort extends SortWerte {
             }
             incrementAnzahlSchleifen();
         }
-        setAnzahlZahlen(length);
     }
 }
