@@ -44,6 +44,7 @@ public class Gnomesort extends SortWerte {
                 incrementAnzahlSchleifen();
             }
             incrementAnzahlVergleiche();
+
             if (arr[index] >= arr[index - 1]) {
                 index++;
                 incrementAnzahlSchleifen();
