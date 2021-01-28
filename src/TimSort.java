@@ -2,23 +2,21 @@
  * TimSort
  * Beschreibung :
  * Tim Sort ist einfach gesagt, die optimierte Version der Merge-Sortierung.
- * Die Merge-Sortierung bei realen Datenlisten ist nicht so effizient, da die Listen normalerweise teilweise sortiert
+ * Die Merge-Sortierung bei realen Welt Datenlisten ist nicht so effizient, da die Listen normalerweise teilweise sortiert
  * sind. Mit diesem Wissen können wir den besten Fall verbessern, indem wir Insert Sort verwenden,
  * das bei kleinen Datenlisten effizient ist. Für diese Implementierung habe ich der Grenzwert bei 64.
  *
- *
- * Strukturelemente:
- * Stabilität:
- * Best Case:
- * Worst Case:
- * Average-Case:
+ * Stabilität: ja
+ * Schlechteste Komplexität: n*log(n)
+ * Durchschnittliche Komplexität: n*log(n)
+ * Beste Komplexität: n
  *
  * @author Tenzin Gyadhotsang
  * @version 1.0
  * @datum 25.01.2021
- *
+ * <p>
  * Quelle: https://www.geeksforgeeks.org/timsort/
- *
+ * 
  */
 public class TimSort extends SortWerte {
     private String name = "TimSort";
@@ -31,6 +29,11 @@ public class TimSort extends SortWerte {
 
     // Iterative Timsort function to sort the
     // array[0...n-1] (similar to merge sort)
+
+    /**
+     * @param arr
+     * @param length
+     */
     @Override
     public void logic(int[] arr, int length) {
 
@@ -40,7 +43,7 @@ public class TimSort extends SortWerte {
         for (int i = 0; i < length; i += minRun) {
             int right = Math.min((i + 63), (length - 1));
             insertionSort(arr, i, right);
-            incrementAnzahleSchliefe();
+            incrementAnzahlSchleifen();
             incrementAnzahlVergleiche();
         }
 
@@ -69,12 +72,17 @@ public class TimSort extends SortWerte {
                 // Merge sub array arr[left.....mid] &
                 // arr[mid+1....right]
                 merge(arr, left, mid, right);
-                incrementAnzahleSchliefe();
+                incrementAnzahlSchleifen();
                 incrementAnzahlVergleiche();
             }
         }
 
     }
+
+    /**
+     * @param n
+     * @return
+     */
 
     private int minRunLength(int n) {
         assert n >= 0;
@@ -84,12 +92,17 @@ public class TimSort extends SortWerte {
         while (n >= MIN_MERGE) {
             r |= (n & 1);
             n >>= 1;
-            incrementAnzahleSchliefe();
+            incrementAnzahlSchleifen();
             incrementAnzahlVergleiche();
         }
         return n + r;
     }
 
+    /**
+     * @param arr
+     * @param left
+     * @param right
+     */
     // This function sorts array from left index to
     // to right index which is of size atmost RUN
     public void insertionSort(int[] arr, int left, int right) {
@@ -100,13 +113,20 @@ public class TimSort extends SortWerte {
                 arr[j + 1] = arr[j];
                 j--;
                 incrementAnzahlVergleiche();
-                incrementAnzahleSchliefe();
+                incrementAnzahlSchleifen();
             }
             arr[j + 1] = temp;
             incrementAnzahlVergleiche();
-            incrementAnzahleSchliefe();
+            incrementAnzahlSchleifen();
         }
     }
+
+    /**
+     * @param arr
+     * @param l
+     * @param m
+     * @param r
+     */
 
     // Merge function merges the sorted runs
     public void merge(int[] arr, int l, int m, int r) {
@@ -117,12 +137,12 @@ public class TimSort extends SortWerte {
         int[] right = new int[len2];
         for (int x = 0; x < len1; x++) {
             left[x] = arr[l + x];
-            incrementAnzahleSchliefe();
+            incrementAnzahlSchleifen();
             incrementAnzahlVergleiche();
         }
         for (int x = 0; x < len2; x++) {
             right[x] = arr[m + 1 + x];
-            incrementAnzahleSchliefe();
+            incrementAnzahlSchleifen();
             incrementAnzahlVergleiche();
         }
 
@@ -142,7 +162,7 @@ public class TimSort extends SortWerte {
                 j++;
             }
             k++;
-            incrementAnzahleSchliefe();
+            incrementAnzahlSchleifen();
             incrementAnzahlVergleiche();
         }
 
@@ -152,7 +172,7 @@ public class TimSort extends SortWerte {
             arr[k] = left[i];
             k++;
             i++;
-            incrementAnzahleSchliefe();
+            incrementAnzahlSchleifen();
             incrementAnzahlVergleiche();
         }
 
@@ -162,7 +182,7 @@ public class TimSort extends SortWerte {
             arr[k] = right[j];
             k++;
             j++;
-            incrementAnzahleSchliefe();
+            incrementAnzahlSchleifen();
             incrementAnzahlVergleiche();
         }
     }
