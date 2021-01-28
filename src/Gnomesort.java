@@ -1,47 +1,59 @@
-import java.util.Date;
-
 /**
- * Beschreibung:
- * - Hier kommt die Funktionsweise des Gnomesorts
+ * Algorithmus Beschreibung:
+ * 1. Falls man sich bei index 0 befindet, dann gehe zum nächsten Element
+ * 2. Falls das aktuelle Element grösser oder gleich das vorherige Element ist,
+ *    dann gehe ein index weiter
+ * 3. Sonst vertausche diese zwei Elemente und gehe ein Schritt zurück
+ * 4. Schritt 2 und 3 wiederholen, bis man am Ende des Arrays angekommen ist
+ * 5. Sobald man am Ende angekommen ist, beende das Sortieren
  *
- * @author  Lakisha Jeyarajah
- * @date    2021-01-21
- * @version 1.0
+ * - Best-Case:	    n
+ * - Average-Case:	n^2
+ * - Worst-Case:	n^2
+ * - Stabil:		Ja
+ *
+ * - Quellenangabe:   https://www.geeksforgeeks.org/java-program-for-gnome-sort/
+ *
+ * @author          Lakisha Jeyarajah
+ * @date            2021-01-21
+ * @version         1.0
  */
 public class Gnomesort extends SortWerte {
+    private String name = "Gnomesort";
+
+    public Gnomesort() {
+        super.setName(name);
+    }
+
+    /** Array mit Gnomesort sortieren
+     * @param arr Zahlen zu sortieren
+     * @param length Die Länge des Arrays, das übergeben wird
+     */
     @Override
     public void logic(int[] arr, int length) {
-        long start = new Date().getTime();
-        double[] messArr;
-        double anzSchleifen = 0;
-        double anzVergleiche = 0;
         int index = 0;
 
         while (index < length) {
-            anzVergleiche++;
+            //Anzahl Vergleiche hochzählen
+            incrementAnzahlVergleiche();
             if (index == 0) {
                 index++;
-
-                anzSchleifen++;
+                //Anzahl Schleifen hochzählen
+                incrementAnzahleSchliefe();
             }
-            anzVergleiche++;
+            incrementAnzahlVergleiche();
             if (arr[index] >= arr[index - 1]) {
                 index++;
-
-                anzSchleifen++;
+                incrementAnzahleSchliefe();
             } else {
                 int temp = arr[index];
                 arr[index] = arr[index - 1];
                 arr[index - 1] = temp;
                 index--;
-
-                anzSchleifen++;
+                incrementAnzahleSchliefe();
             }
-            anzVergleiche++;
-            anzSchleifen++;
+            incrementAnzahlVergleiche();
+            incrementAnzahleSchliefe();
         }
-        double time = new Date().getTime()-start;
-        messArr = new double[]{anzSchleifen, time, anzVergleiche};
-        //return messArr;
     }
 }
