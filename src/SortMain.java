@@ -51,6 +51,8 @@ public class SortMain {
         ss.print();
         SortWerte gs = new Gnomesort().sort(arr, anzZahlen);
         gs.print();
+        SortWerte ts = new TimSort().sort(arr,anzZahlen);
+        ts.print();
     }
 
 
