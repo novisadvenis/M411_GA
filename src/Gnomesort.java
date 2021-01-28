@@ -1,3 +1,5 @@
+import java.util.Date;
+
 /**
  * Beschreibung:
  * - Hier kommt die Funktionsweise des Gnomesorts
@@ -9,7 +11,7 @@
 public class Gnomesort implements SortInterface {
     @Override
     public double[] sort(int[] arr, int length) {
-        long start = System.nanoTime();
+        long start = new Date().getTime();
         double[] messArr;
         double anzSchleifen = 0;
         double anzVergleiche = 0;
@@ -38,8 +40,7 @@ public class Gnomesort implements SortInterface {
             anzVergleiche++;
             anzSchleifen++;
         }
-        long end = System.nanoTime();
-        double time = (end - start) / 1000000000;
+        double time = new Date().getTime()-start;
         messArr = new double[]{anzSchleifen, time, anzVergleiche};
         return messArr;
     }

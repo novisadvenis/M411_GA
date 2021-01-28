@@ -1,11 +1,17 @@
+import java.util.Date;
+
+/**
+ * Beschreibung:
+ *
+ * @version 1.0 21.01.2021
+ * @author Viviana Kontos
+ */
+
 public class Quicksort implements SortInterface {
 
     private static double schleifen;
     private static double vergleiche;
 
-    public static void main(String[] args) {
-        int[] arr = {4, 7, 2, 8, 9, 6, 1, 3};
-    }
 
     private static void sortParts(int[] arr, int leftPos, int rightPos) {
         if (leftPos < rightPos) {
@@ -42,9 +48,9 @@ public class Quicksort implements SortInterface {
 
     @Override
     public double[] sort(int[] arr, int length) {
-        long start = System.nanoTime();
+        long start = new Date().getTime();
         sortParts(arr, 0, length - 1);
-        double time = (System.nanoTime() - start) / 1000000000;
+        double time = new Date().getTime()-start;
         return new double[]{schleifen, time, vergleiche};
     }
 }

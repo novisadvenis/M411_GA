@@ -1,3 +1,5 @@
+import java.util.Date;
+
 /**
  *
  * Beschreibung
@@ -15,7 +17,7 @@ public class SelectionSort implements SortInterface{
     @Override
     public double[] sort(int[] arr, int length) {
 
-        long start = System.nanoTime();
+        long start = new Date().getTime();
         double[] messArr;
 
         double schleifen = 0;
@@ -46,7 +48,7 @@ public class SelectionSort implements SortInterface{
             vergleiche++;
             schleifen++;
         }
-        double time = (System.nanoTime() - start) / 1000000000;
+        double time = new Date().getTime()-start;
         messArr = new double[]{schleifen, time, vergleiche};
 
         return messArr;

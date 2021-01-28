@@ -15,6 +15,7 @@ public class SortMain {
         BubbleSort bs = new BubbleSort();
         Quicksort qs = new Quicksort();
         SelectionSort ss = new SelectionSort();
+        Gnomesort gs = new Gnomesort();
 
         for (int i = 1; i <= 3; i++) {
             int anzZahlen = 0;
@@ -43,6 +44,9 @@ public class SortMain {
             messWerte = ss.sort(arr, arr.length);
             System.out.println("\tSelectionsort:");
             System.out.println(sm);
+            messWerte = gs.sort(arr, arr.length);
+            System.out.println("\tGnomesort:");
+            System.out.println(sm);
         }
 
 
@@ -53,8 +57,8 @@ public class SortMain {
     public String toString() {
         return
                 "\t\tAnzahl Schleifendurchläufe: " + messWerte[0] +
-                        "\n\t\tAnzahl Vergleiche:         " + messWerte[2] +
-                        "\n\t\tgebrauchte Zeit:           " + messWerte[1];
+                        "\n\t\tAnzahl Vergleiche:          " + messWerte[2] +
+                        "\n\t\tgebrauchte Zeit:            " + messWerte[1] + "ms";
     }
 
     private void datReader() {
