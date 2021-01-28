@@ -1,0 +1,46 @@
+/**
+ * Beschreibung:
+ * - Hier kommt die Funktionsweise des Gnomesorts
+ *
+ * @author  Lakisha Jeyarajah
+ * @date    2021-01-21
+ * @version 1.0
+ */
+public class Gnomesort implements SortInterface {
+    @Override
+    public double[] sort(int[] arr, int length) {
+        long start = System.nanoTime();
+        double[] messArr;
+        double anzSchleifen = 0;
+        double anzVergleiche = 0;
+        int index = 0;
+
+        while (index < length) {
+            anzVergleiche++;
+            if (index == 0) {
+                index++;
+
+                anzSchleifen++;
+            }
+            anzVergleiche++;
+            if (arr[index] >= arr[index - 1]) {
+                index++;
+
+                anzSchleifen++;
+            } else {
+                int temp = arr[index];
+                arr[index] = arr[index - 1];
+                arr[index - 1] = temp;
+                index--;
+
+                anzSchleifen++;
+            }
+            anzVergleiche++;
+            anzSchleifen++;
+        }
+        long end = System.nanoTime();
+        double time = (end - start) / 1000000000;
+        messArr = new double[]{anzSchleifen, time, anzVergleiche};
+        return messArr;
+    }
+}
