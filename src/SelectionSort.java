@@ -1,7 +1,5 @@
 
 
-package SelectionSort;
-
 /**
  *
  * Beschreibung
@@ -50,21 +48,14 @@ public class SelectionSort extends SortWerte{
             vergleiche++;
             schleifen++;
         }
-<<<<<<< HEAD
-        double time = new Date().getTime()-start;
-        messArr = new double[]{schleifen, time, vergleiche};
-
-        //return messArr;
-    }
-=======
         schleifen++;
-        
-        setAnzahleSchleife(schleifen);
-    setAnzahlVergleiche(vergleiche);
->>>>>>> 53f76c25f15fd6f671791b1cfb1f1d400d287b3c
+
+        incrementAnzahlVergleiche();
+        incrementAnzahleSchliefe();
+
+    }
+
+
+
 
 }
-
-
-}
-
