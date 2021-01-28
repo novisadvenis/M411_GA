@@ -2,16 +2,16 @@
  * Algorithmus Beschreibung:
  * 1. Falls man sich bei index 0 befindet, dann gehe zum nächsten Element
  * 2. Falls das aktuelle Element grösser oder gleich das vorherige Element ist,
- * dann gehe ein index weiter
+ *    dann gehe ein index weiter
  * 3. Sonst vertausche diese zwei Elemente und gehe ein Schritt zurück
  * 4. Schritt 2 und 3 wiederholen, bis man am Ende des Arrays angekommen ist
  * 5. Sobald man am Ende angekommen ist, beende das Sortieren
- * <p>
+ *
  * - Best-Case:	    n
  * - Average-Case:	n^2
  * - Worst-Case:	n^2
  * - Stabil:		Ja
- * <p>
+ *
  * - Quellenangabe:   https://www.geeksforgeeks.org/java-program-for-gnome-sort/
  *
  * @author Lakisha Jeyarajah
@@ -29,7 +29,7 @@ public class Gnomesort extends SortWerte {
      * Array mit Gnomesort sortieren
      *
      * @param arr    Zahlen zu sortieren
-     * @param length Die Länge des Arrays, das übergeben wird
+     * @param length Anzahl zu sortierende Zahlen
      */
     @Override
     public void logic(int[] arr, int length) {
@@ -57,6 +57,7 @@ public class Gnomesort extends SortWerte {
             incrementAnzahlVergleiche();
             incrementAnzahlSchleifen();
         }
+        //Anzahl zu sortierende Zahlen setzen
         setAnzahlZahlen(length);
     }
 }
