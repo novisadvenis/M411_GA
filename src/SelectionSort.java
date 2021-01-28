@@ -1,4 +1,6 @@
-import java.util.Date;
+
+
+package SelectionSort;
 
 /**
  *
@@ -12,12 +14,12 @@ import java.util.Date;
  * @author Kaushall Vimalarajah
  */
 
-public class SelectionSort implements SortInterface{
+public class SelectionSort extends SortWerte{
 
     @Override
-    public double[] sort(int[] arr, int length) {
+    public void logic(int[] arr, int length) {
 
-        long start = new Date().getTime();
+        long start = System.nanoTime();
         double[] messArr;
 
         double schleifen = 0;
@@ -48,12 +50,12 @@ public class SelectionSort implements SortInterface{
             vergleiche++;
             schleifen++;
         }
-        double time = new Date().getTime()-start;
-        messArr = new double[]{schleifen, time, vergleiche};
+        schleifen++;
+        
+        setAnzahleSchleife(schleifen);
+    setAnzahlVergleiche(vergleiche);
 
-        return messArr;
-    }
-
+}
 
 
 
