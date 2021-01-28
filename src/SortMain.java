@@ -1,3 +1,8 @@
+/**
+ * @author Viviana Kontos
+ * @date 21.01.2021
+ */
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,7 +12,6 @@ public class SortMain {
     private static int[] arr10;
     private static int[] arr100;
     private static int[] arr1000;
-    private static double[] messWerte;
 
 
 
@@ -16,23 +20,19 @@ public class SortMain {
         sm.datReader();
 
         for (int i = 1; i <= 3; i++) {
-            int anzZahlen;
             int[] arr;
             switch (i) {
                 case 1:
-                    anzZahlen = 10;
                     arr = arr10;
-                    aufrufen(arr, anzZahlen);
+                    aufrufen(arr, arr.length);
                     break;
                 case 2:
-                    anzZahlen = 100;
                     arr = arr100;
-                    aufrufen(arr, anzZahlen);
+                    aufrufen(arr, arr.length);
                     break;
                 case 3:
-                    anzZahlen = 1000;
                     arr = arr1000;
-                    aufrufen(arr, anzZahlen);
+                    aufrufen(arr, arr.length);
                     break;
             }
 

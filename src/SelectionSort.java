@@ -22,40 +22,32 @@ public class SelectionSort extends SortWerte {
     @Override
     public void logic(int[] arr, int length) {
 
+        setAnzahlZahlen(length);
         int i, j, minValue, minIndex, temp = 0;
         for (i = 0; i < length; i++) {
             incrementAnzahlVergleiche();
             minValue = arr[i];
             minIndex = i;
             for (j = i; j < length; j++) {
-                incrementAnzahleSchliefe();
+                incrementAnzahlSchleifen();
                 if (arr[j] < minValue) {
 
                     minValue = arr[j];
                     minIndex = j;
-                    incrementAnzahleSchliefe();
+                    incrementAnzahlSchleifen();
                 }
                 incrementAnzahlVergleiche();
-                incrementAnzahleSchliefe();
+                incrementAnzahlSchleifen();
             }
             if (minValue < arr[i]) {
                 temp = arr[i];
                 arr[i] = arr[minIndex];
                 arr[minIndex] = temp;
-                incrementAnzahleSchliefe();
+                incrementAnzahlSchleifen();
             }
             incrementAnzahlVergleiche();
-            incrementAnzahleSchliefe();
+            incrementAnzahlSchleifen();
         }
-
-        incrementAnzahleSchliefe();
-
-        incrementAnzahlVergleiche();
-        incrementAnzahleSchliefe();
-
-
-        incrementAnzahlVergleiche();
-        incrementAnzahleSchliefe();
 
     }
 }

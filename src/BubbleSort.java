@@ -1,3 +1,8 @@
+/**
+ * @author Viviana Kontos
+ * @date 21.01.2021
+ */
+
 public class BubbleSort extends SortWerte {
 
     private String name = "Bubblesort";
@@ -16,12 +21,13 @@ public class BubbleSort extends SortWerte {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
-                    incrementAnzahleSchliefe();
+                    incrementAnzahlSchleifen();
                 }
                 incrementAnzahlVergleiche();
-                incrementAnzahleSchliefe();
+                incrementAnzahlSchleifen();
             }
-            incrementAnzahleSchliefe();
+            incrementAnzahlSchleifen();
         }
+        setAnzahlZahlen(length);
     }
 }

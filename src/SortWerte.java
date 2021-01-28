@@ -1,4 +1,10 @@
+/**
+ * @author Viviana Kontos
+ * @date 21.01.2021
+ */
+
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public abstract class SortWerte implements SortInterface {
@@ -9,7 +15,11 @@ public abstract class SortWerte implements SortInterface {
     private double vergleiche = 0;
 
     SortWerte() {
-        messWerte = new HashMap<>();
+        messWerte = new LinkedHashMap<>();
+    }
+
+    public void setAnzahlZahlen(double anzZahlen) {
+        messWerte.put("Anzahl zu sortierender Zahlen: ", anzZahlen);
     }
 
     private void setZeitInNanosekunde(double dauerInSekunde) {
@@ -20,6 +30,7 @@ public abstract class SortWerte implements SortInterface {
         messWerte.put("Speicherplatz in Kilobyte: ", memoryUsage / 1000);
     }
 
+
     public String getName() {
         return name;
     }
@@ -28,7 +39,7 @@ public abstract class SortWerte implements SortInterface {
         this.name = name;
     }
 
-    public final void incrementAnzahleSchliefe() {
+    public final void incrementAnzahlSchleifen() {
         messWerte.put("Anzahl Schleifendurchläufe: ", schleifen++);
     }
 
@@ -40,7 +51,6 @@ public abstract class SortWerte implements SortInterface {
     public final SortWerte sort(int[] arr, int length) {
         Runtime runtime = Runtime.getRuntime();
         long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
-        //System.out.println("Used Memory before" + usedMemoryBefore);
         long start = System.nanoTime();
         logic(arr, length);
         long end = System.nanoTime();
@@ -50,16 +60,16 @@ public abstract class SortWerte implements SortInterface {
         return this;
     }
 
-    ;
 
     @Override
     public abstract void logic(int[] arr, int length);
 
     public void print() {
         System.out.println(getName() + " Messwerte: ");
+        System.out.println();
         for (String key : messWerte.keySet()) {
             System.out.println(key + " : " + messWerte.get(key));
         }
-        System.out.println("----------------------------");
+        System.out.println("-----------------------------------------");
     }
 }

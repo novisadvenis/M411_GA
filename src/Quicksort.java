@@ -1,17 +1,13 @@
-import java.util.Date;
-
 /**
- * Beschreibung:
- *
- * @version 1.0 21.01.2021
  * @author Viviana Kontos
+ * @date 21.01.2021
  */
 
 public class Quicksort extends SortWerte {
 
     private String name = "Quicksort";
 
-    public Quicksort(){
+    public Quicksort() {
         super.setName(name);
     }
 
@@ -21,6 +17,8 @@ public class Quicksort extends SortWerte {
             sortParts(arr, leftPos, middlePos - 1);
             sortParts(arr, middlePos + 1, rightPos);
         }
+        incrementAnzahlVergleiche();
+        incrementAnzahlSchleifen();
     }
 
     private int split(int[] arr, int leftPos, int rightPos) {
@@ -35,10 +33,10 @@ public class Quicksort extends SortWerte {
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
-                incrementAnzahleSchliefe();
+                incrementAnzahlSchleifen();
             }
             incrementAnzahlVergleiche();
-            incrementAnzahleSchliefe();
+            incrementAnzahlSchleifen();
         }
 
         int temp = arr[i + 1];
@@ -51,5 +49,6 @@ public class Quicksort extends SortWerte {
     @Override
     public void logic(int[] arr, int length) {
         sortParts(arr, 0, length - 1);
+        setAnzahlZahlen(length);
     }
 }
