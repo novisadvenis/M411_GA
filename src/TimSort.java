@@ -1,10 +1,24 @@
 /**
  * TimSort
  * Beschreibung :
+ * Tim Sort ist einfach gesagt, die optimierte Version der Merge-Sortierung.
+ * Die Merge-Sortierung bei realen Datenlisten ist nicht so effizient, da die Listen normalerweise teilweise sortiert
+ * sind. Mit diesem Wissen können wir den besten Fall verbessern, indem wir Insert Sort verwenden,
+ * das bei kleinen Datenlisten effizient ist. Für diese Implementierung habe ich der Grenzwert bei 64.
+ *
+ *
+ * Strukturelemente:
+ * Stabilität:
+ * Best Case:
+ * Worst Case:
+ * Average-Case:
  *
  * @author Tenzin Gyadhotsang
  * @version 1.0
  * @datum 25.01.2021
+ *
+ * Quelle: https://www.geeksforgeeks.org/timsort/
+ *
  */
 public class TimSort extends SortWerte {
     private String name = "TimSort";
