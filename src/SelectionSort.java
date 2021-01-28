@@ -1,4 +1,6 @@
-import java.util.Date;
+
+
+package SelectionSort;
 
 /**
  *
@@ -17,7 +19,7 @@ public class SelectionSort extends SortWerte{
     @Override
     public void logic(int[] arr, int length) {
 
-        long start = new Date().getTime();
+        long start = System.nanoTime();
         double[] messArr;
 
         double schleifen = 0;
@@ -48,12 +50,20 @@ public class SelectionSort extends SortWerte{
             vergleiche++;
             schleifen++;
         }
+<<<<<<< HEAD
         double time = new Date().getTime()-start;
         messArr = new double[]{schleifen, time, vergleiche};
 
         //return messArr;
     }
+=======
+        schleifen++;
+        
+        setAnzahleSchleife(schleifen);
+    setAnzahlVergleiche(vergleiche);
+>>>>>>> 53f76c25f15fd6f671791b1cfb1f1d400d287b3c
 
+}
 
 
 }
